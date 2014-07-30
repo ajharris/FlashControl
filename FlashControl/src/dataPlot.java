@@ -11,13 +11,19 @@ public class dataPlot extends PApplet{
 	public void setup(){
 		size(1100, 220);
 		background(0);
-		freq = 375;
+		freq = 475;
 		value = 100;
 	}
 	
 	public void draw(){
+		specDraw(freq, value);
+	}
+	
+	public void specDraw(int fr, int val){
 		stroke(255);
-		line(freq-100, height, freq-100, value);
+		if(fr == 375) background(0);
+		line(fr-100, height, fr-100, val);
+
 	}
 
 }
