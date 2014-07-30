@@ -11,7 +11,9 @@ public class dataPlot extends PApplet{
 	private ArduinoController lc = new ArduinoController();
 	
 	public void setup(){
+
 		frameRate(800);
+
 		size(1100, 220);
 		background(0);
 		freq = 475;
@@ -21,6 +23,7 @@ public class dataPlot extends PApplet{
 	
 	public void draw(){
 		specDraw(lc.getVal()[0], lc.getVal()[1]);
+		println(frameRate);
 	}
 	
 	public void specDraw(int fr, int val){
