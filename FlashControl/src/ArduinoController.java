@@ -118,7 +118,7 @@ public synchronized void serialEvent(final SerialPortEvent oEvent) {
 					values[1] = Integer.parseInt(numbers[1]);
 					
 					StdOut.println(values[0] + " "+ values[1]);
-					Thread.sleep(10);
+					Thread.sleep(1);
 				} catch (Exception e) {
 					System.err.println(e.toString());
 				}

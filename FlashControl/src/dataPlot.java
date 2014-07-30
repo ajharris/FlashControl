@@ -23,8 +23,9 @@ public class dataPlot extends PApplet{
 	}
 	
 	public void specDraw(int fr, int val){
+		stroke(0);
+		line(fr-100, height, fr-100, 0);		
 		stroke(255);
-		if(fr == 375) background(0);
 		line(fr-100, height, fr-100, height-val);
 
 	}
