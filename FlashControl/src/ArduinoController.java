@@ -15,7 +15,7 @@ import java.util.Enumeration;
 import cc.arduino.*;
 
 public class ArduinoController implements SerialPortEventListener{
-
+	int[] values = new int[2];
 	SerialPort serialPort;
     /** The port we're normally going to use. */
 	private static final String PORT_NAMES[] = { 
@@ -108,6 +108,13 @@ public synchronized void serialEvent(final SerialPortEvent oEvent) {
 			if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
 				try {
 					String inputLine=input.readLine();
+					
+					String numbers[ ] = new String[2];
+					numbers = inputLine.split(" ");
+					values[0] = Integer.parseInt(numbers[0]);
+					values[1] = Integer.parseInt(numbers[1]);
+					
+					StdOut.println(values[0] + " "+ values[1]);
 					Thread.sleep(10);
 				} catch (Exception e) {
 					System.err.println(e.toString());
