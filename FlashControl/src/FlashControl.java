@@ -50,6 +50,7 @@ public class FlashControl implements ActionListener{
 	private JTextField txtPresetName;
 	private JTextField txtPinNumber;
 	private JTextField txtFrequency;
+	private dataPlot plot = new dataPlot();
 
 	/**
 	 * Launch the application.
@@ -97,7 +98,7 @@ public class FlashControl implements ActionListener{
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(0, 0, 604, 346);
+		frame.setBounds(0, 0, 1200, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
         
@@ -257,6 +258,13 @@ public class FlashControl implements ActionListener{
         JButton btnSetFrequency = new JButton("Set Frequency");
         btnSetFrequency.setBounds(31, 278, 134, 23);
         frame.getContentPane().add(btnSetFrequency);
+        
+        JPanel panel_1 = new JPanel();
+        panel_1.setBounds(31, 335, 1100, 220);
+        frame.getContentPane().add(panel_1);
+        plot.init();
+        panel_1.add(plot);
+        
         btnSetFrequency.addActionListener(new ActionListener(){
 
 			@Override
