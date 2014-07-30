@@ -11,6 +11,7 @@ public class dataPlot extends PApplet{
 	private ArduinoController lc = new ArduinoController();
 	
 	public void setup(){
+		frameRate(800);
 		size(1100, 220);
 		background(0);
 		freq = 475;
