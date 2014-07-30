@@ -2,6 +2,7 @@
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 
@@ -15,6 +16,13 @@ import java.util.Enumeration;
 import cc.arduino.*;
 
 public class ArduinoController implements SerialPortEventListener{
+	private dataPlot plot;
+	final int[] send = new int[]{0,0};
+	
+	public int[] getVal(){
+		return send;
+		
+	}
 
 	SerialPort serialPort;
     /** The port we're normally going to use. */
@@ -31,12 +39,15 @@ public class ArduinoController implements SerialPortEventListener{
 * making the displayed results codepage independent
 */
 private BufferedReader input;
+private InputStream bytes;
 /** The output stream to the port */
 private OutputStream output;
 /** Milliseconds to block while waiting for port open */
 private static final int TIME_OUT = 2000;
 /** Default bits per second for COM port. */
 private static final int DATA_RATE = 9600;
+
+
 
 public void initialize() {
             // the next line is for Raspberry Pi and 
@@ -45,6 +56,8 @@ public void initialize() {
 
 	CommPortIdentifier portId = null;
 	Enumeration portEnum = CommPortIdentifier.getPortIdentifiers();
+	
+
 
 	//First, Find an instance of serial port as set in PORT_NAMES.
 	while (portEnum.hasMoreElements()) {
@@ -77,6 +90,7 @@ public void initialize() {
 		input = new BufferedReader(new InputStreamReader(serialPort.getInputStream()));
 		output = serialPort.getOutputStream();
 
+
 		// add event listeners
 		serialPort.addEventListener(this);
 		serialPort.notifyOnDataAvailable(true);
@@ -100,14 +114,31 @@ public synchronized void close() {
  * Handle an event on the serial port. Read the data and print it.
  */
 public synchronized void serialEvent(final SerialPortEvent oEvent) {
-	
+
 	Thread t = new Thread(new Runnable(){
+
+
 		@Override
 		public void run(){
+			
 	
 			if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
 				try {
-					String inputLine=input.readLine();
+					
+//					String inputLine=input.readLine();
+//					String [] items = inputLine.split(" ");
+//					
+//					for(int i = 0; i<items.length; i++){
+//						send[i] = Integer.parseInt(items[i]);
+//					}
+//					StdOut.println(send[0] + " " + send[1]);
+					
+//					TODO commented out reading ints to work on reading bytes
+					
+					byte[] array = new byte[2];
+					bytes.read(array, 0, 2);
+					StdOut.print(array[0] + " " + array[1]);
+
 					Thread.sleep(10);
 				} catch (Exception e) {
 					System.err.println(e.toString());
