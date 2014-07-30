@@ -37,6 +37,9 @@ private OutputStream output;
 private static final int TIME_OUT = 2000;
 /** Default bits per second for COM port. */
 private static final int DATA_RATE = 9600;
+public int[] getVal(){
+	return values;
+}
 
 public void initialize() {
             // the next line is for Raspberry Pi and 

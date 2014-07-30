@@ -8,21 +8,24 @@ public class dataPlot extends PApplet{
 	 */
 	private static final long serialVersionUID = 1L;
 	private int freq, value;
+	private ArduinoController lc = new ArduinoController();
+	
 	public void setup(){
 		size(1100, 220);
 		background(0);
 		freq = 475;
 		value = 100;
+		lc.initialize();
 	}
 	
 	public void draw(){
-		specDraw(freq, value);
+		specDraw(lc.getVal()[0], lc.getVal()[1]);
 	}
 	
 	public void specDraw(int fr, int val){
 		stroke(255);
 		if(fr == 375) background(0);
-		line(fr-100, height, fr-100, val);
+		line(fr-100, height, fr-100, height-val);
 
 	}
 
