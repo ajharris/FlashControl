@@ -97,7 +97,7 @@ public class FlashControl implements ActionListener{
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(0, 0, 1030, 600);
+		frame.setBounds(0, 0, 604, 346);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
         
@@ -257,14 +257,6 @@ public class FlashControl implements ActionListener{
         JButton btnSetFrequency = new JButton("Set Frequency");
         btnSetFrequency.setBounds(31, 278, 134, 23);
         frame.getContentPane().add(btnSetFrequency);
-        
-        JPanel panel_1 = new JPanel();
-        panel_1.setBounds(10, 307, 1000, 200);
-        frame.getContentPane().add(panel_1);
-        dataPlot plot = new dataPlot();
-        plot.init();
-        panel_1.add(plot);
- 
         btnSetFrequency.addActionListener(new ActionListener(){
 
 			@Override
