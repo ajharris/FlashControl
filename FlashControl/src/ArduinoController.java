@@ -16,6 +16,8 @@ import java.util.Hashtable;
 import cc.arduino.*;
 
 public class ArduinoController implements SerialPortEventListener{
+
+	
 	Hashtable<Integer, Integer> values = new Hashtable<Integer, Integer>();
 	SerialPort serialPort;
     /** The port we're normally going to use. */

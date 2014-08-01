@@ -42,6 +42,8 @@ import java.lang.reflect.InvocationTargetException;
 import javax.swing.JScrollBar;
 import javax.swing.JTable;
 
+
+
 public class FlashControl implements ActionListener{
 
 	private JFrame frame;
