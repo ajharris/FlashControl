@@ -14,6 +14,9 @@ public class dataPlot extends PApplet{
 	private Hashtable<Integer, Integer> values = new Hashtable<Integer, Integer>();
 	
 	private ArduinoController lc = new ArduinoController();
+	public void setLc(ArduinoController flashLc){
+		lc = flashLc;
+	}
 	
 	public void setup(){
 
@@ -23,7 +26,7 @@ public class dataPlot extends PApplet{
 		background(0);
 
 		value = 100;
-		lc.initialize();
+		
 	}
 	
 	public void draw(){
@@ -49,6 +52,12 @@ public class dataPlot extends PApplet{
 		stroke(255);
 		line(fr-200, height, fr-200, height-val);
 
+	}
+
+
+	public void init(ArduinoController lightController) {
+		lc = lightController;
+		
 	}
 
 }

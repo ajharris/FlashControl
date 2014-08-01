@@ -24,7 +24,7 @@ public class ArduinoController implements SerialPortEventListener{
         "ttyACM0", // Raspberry Pi
 		"ttyUSB0", // Linux
 //		"COM3", "COM1", 
-		"COM" // Windows
+		"COM4" // Windows
 	};
 /**
 * A BufferedReader which will be fed by a InputStreamReader 

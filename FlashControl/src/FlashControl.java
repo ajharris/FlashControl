@@ -259,11 +259,14 @@ public class FlashControl implements ActionListener{
         btnSetFrequency.setBounds(31, 278, 134, 23);
         frame.getContentPane().add(btnSetFrequency);
         
-        JPanel panel_1 = new JPanel();
-        panel_1.setBounds(31, 335, 1100, 220);
-        frame.getContentPane().add(panel_1);
-        plot.init();
-        panel_1.add(plot);
+//        TODO Commented out graph for now to focus on faders
+        
+//        JPanel panel_1 = new JPanel();
+//        panel_1.setBounds(31, 335, 1100, 220);
+//        frame.getContentPane().add(panel_1);
+//        plot.init();
+//        plot.setLc(lightController);
+//        panel_1.add(plot);
         
         btnSetFrequency.addActionListener(new ActionListener(){
 
