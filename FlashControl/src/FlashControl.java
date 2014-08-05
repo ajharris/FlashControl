@@ -259,11 +259,12 @@ public class FlashControl implements ActionListener{
         btnSetFrequency.setBounds(31, 278, 134, 23);
         frame.getContentPane().add(btnSetFrequency);
         
-        JPanel panel_1 = new JPanel();
+        JPanel panel_1 = new JPanel(new BorderLayout());
         panel_1.setBounds(31, 335, 1100, 220);
         frame.getContentPane().add(panel_1);
+
         plot.init();
-        panel_1.add(plot);
+        panel_1.add(plot, BorderLayout.LINE_START);
         
         btnSetFrequency.addActionListener(new ActionListener(){
 
