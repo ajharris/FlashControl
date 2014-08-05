@@ -23,22 +23,24 @@ public class dataPlot extends PApplet{
 		background(0);
 
 		value = 100;
-		lc.initialize();
+
 	}
 	
 	public void draw(){
 //		specDraw(lc.getVal()[0], lc.getVal()[1]);
 
-		freq = 375;
-		values = lc.getVal();
+		if(lc != null){
+			freq = 375;
+			values = lc.getVal();
 //		StdOut.println("Finished loading array");
 		
-		for(int j = 0; j < values.size(); j++){
+			for(int j = 0; j < values.size(); j++){
 		
-			freq += 2;
-			if(values.get(freq) != null){
-				specDraw(freq, values.get(freq));
+				freq += 2;
+				if(values.get(freq) != null){
+					specDraw(freq, values.get(freq));
 			}
+		}
 
 		}
 	}
@@ -49,6 +51,11 @@ public class dataPlot extends PApplet{
 		stroke(255);
 		line(fr-200, height, fr-200, height-val);
 
+	}
+
+	public void setLc(ArduinoController lightController) {
+		lc = lightController;
+		
 	}
 
 }

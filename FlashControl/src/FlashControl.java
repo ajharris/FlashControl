@@ -264,6 +264,7 @@ public class FlashControl implements ActionListener{
         frame.getContentPane().add(panel_1);
 
         plot.init();
+        plot.setLc(lightController);
         panel_1.add(plot, BorderLayout.LINE_START);
         
         btnSetFrequency.addActionListener(new ActionListener(){
