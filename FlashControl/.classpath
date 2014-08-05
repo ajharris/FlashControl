@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="RXTXcomm.jar"/>
 	<classpathentry kind="lib" path="miglayout15-swing.jar" sourcepath="miglayout-src.zip"/>
 	<classpathentry kind="lib" path="stdlib.jar"/>
+	<classpathentry kind="lib" path="core.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

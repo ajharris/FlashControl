@@ -11,11 +11,12 @@ import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
 
 import java.util.Enumeration; 
+import java.util.Hashtable;
 
 import cc.arduino.*;
 
 public class ArduinoController implements SerialPortEventListener{
-
+	Hashtable<Integer, Integer> values = new Hashtable<Integer, Integer>();
 	SerialPort serialPort;
     /** The port we're normally going to use. */
 	private static final String PORT_NAMES[] = { 
@@ -37,6 +38,9 @@ private OutputStream output;
 private static final int TIME_OUT = 2000;
 /** Default bits per second for COM port. */
 private static final int DATA_RATE = 9600;
+public Hashtable<Integer, Integer> getVal(){
+	return values;
+}
 
 public void initialize() {
             // the next line is for Raspberry Pi and 
@@ -108,7 +112,13 @@ public synchronized void serialEvent(final SerialPortEvent oEvent) {
 			if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
 				try {
 					String inputLine=input.readLine();
-					Thread.sleep(10);
+					
+					String numbers[ ] = new String[2];
+					numbers = inputLine.split(" ");
+					values.put(Integer.parseInt(numbers[0]),Integer.parseInt(numbers[1]));
+					
+//					StdOut.println(values[0] + " "+ values[1]);
+					Thread.sleep(100);
 				} catch (Exception e) {
 					System.err.println(e.toString());
 				}
