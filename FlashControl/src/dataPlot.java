@@ -13,7 +13,7 @@ public class dataPlot extends PApplet{
 	
 	private Hashtable<Integer, Integer> values = new Hashtable<Integer, Integer>();
 	
-	private ArduinoController lc = new ArduinoController();
+	private Spectrometer spec = new Spectrometer();
 	
 	public void setup(){
 
@@ -23,14 +23,14 @@ public class dataPlot extends PApplet{
 		background(0);
 
 		value = 100;
-		lc.initialize();
+		spec.initialize();
 	}
 	
 	public void draw(){
 //		specDraw(lc.getVal()[0], lc.getVal()[1]);
 
 		freq = 375;
-		values = lc.getVal();
+		values = spec.getVal();
 //		StdOut.println("Finished loading array");
 		
 		for(int j = 0; j < values.size(); j++){
