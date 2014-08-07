@@ -17,6 +17,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
+import java.awt.GridLayout;
 import java.awt.Scrollbar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -259,7 +260,7 @@ public class FlashControl implements ActionListener{
         btnSetFrequency.setBounds(31, 278, 134, 23);
         frame.getContentPane().add(btnSetFrequency);
         
-        JPanel panel_1 = new JPanel();
+        JPanel panel_1 = new JPanel(new GridLayout(1,1));
         panel_1.setBounds(31, 335, 1100, 220);
         frame.getContentPane().add(panel_1);
         plot.init();
