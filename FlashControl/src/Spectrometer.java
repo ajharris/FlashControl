@@ -1,3 +1,4 @@
+import java.util.Hashtable;
 import java.util.List;
 
 import com.sun.jna.*;
@@ -42,6 +43,11 @@ public class Spectrometer {
 	public void initialize() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public Hashtable<Integer, Integer> getVal() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
 
