@@ -60,4 +60,8 @@ public class dataPlot extends PApplet{
 		
 	}
 
+	public void setPort(String portName) {
+		spec.initialize(portName);
+	}
+
 }

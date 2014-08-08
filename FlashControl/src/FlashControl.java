@@ -303,6 +303,7 @@ public class FlashControl implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				JComboBox cb = (JComboBox)e.getSource();
 				String portName = (String)cb.getSelectedItem();
+				plot.setPort(portName);
 
 			}
         	
