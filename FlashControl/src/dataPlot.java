@@ -9,7 +9,7 @@ public class dataPlot extends PApplet{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int freq, value;
+	private int wl, value;
 	
 	private Hashtable<Integer, Integer> values = new Hashtable<Integer, Integer>();
 	
@@ -29,15 +29,15 @@ public class dataPlot extends PApplet{
 	public void draw(){
 //		specDraw(lc.getVal()[0], lc.getVal()[1]);
 
-		freq = 375;
+		wl = 375;
 		values = spec.getVal();
 //		StdOut.println("Finished loading array");
 		
 		for(int j = 0; j < values.size(); j++){
 		
-			freq += 2;
-			if(values.get(freq) != null){
-				specDraw(freq, values.get(freq));
+			wl += 2;
+			if(values.get(wl) != null){
+				specDraw(wl, values.get(wl));
 			}
 
 		}

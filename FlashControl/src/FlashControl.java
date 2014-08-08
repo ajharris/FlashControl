@@ -39,6 +39,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
 
 import javax.swing.JScrollBar;
 import javax.swing.JTable;
@@ -98,6 +99,10 @@ public class FlashControl implements ActionListener{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		String[] commPorts = new String[lister.list().size()];
+		commPorts = lister.list().toArray(commPorts);
+		
+		
 		frame = new JFrame();
 		frame.setBounds(0, 0, 1200, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -266,6 +271,22 @@ public class FlashControl implements ActionListener{
         plot.init();
         panel_1.add(plot);
         
+        JComboBox comboBox = new JComboBox(commPorts);
+        comboBox.setBounds(1002, 55, 192, 27);
+        frame.getContentPane().add(comboBox);
+        
+        JLabel lblLightPort = new JLabel("Light Port");
+        lblLightPort.setBounds(917, 59, 73, 16);
+        frame.getContentPane().add(lblLightPort);
+        
+        JLabel lblSpectPort = new JLabel("Spect Port");
+        lblSpectPort.setBounds(917, 92, 73, 16);
+        frame.getContentPane().add(lblSpectPort);
+        
+        JComboBox comboBox_1 = new JComboBox(commPorts);
+        comboBox_1.setBounds(1002, 88, 192, 27);
+        frame.getContentPane().add(comboBox_1);
+        
         btnSetFrequency.addActionListener(new ActionListener(){
 
 			@Override
@@ -363,6 +384,10 @@ public class FlashControl implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		
 	}
+	private CommPortLister lister = new CommPortLister();
+	
+//	
+
 }
 
 
