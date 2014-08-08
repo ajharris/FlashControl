@@ -24,22 +24,26 @@ public class dataPlot extends PApplet{
 
 		value = 100;
 		spec.initialize();
+		spec.close();
 	}
 	
 	public void draw(){
 //		specDraw(lc.getVal()[0], lc.getVal()[1]);
 
 		wl = 375;
-		values = spec.getVal();
-//		StdOut.println("Finished loading array");
+		if(spec.toString().contains("Spectrometer")){
+			values = spec.getVal();
+//			StdOut.println("Finished loading array");
 		
-		for(int j = 0; j < values.size(); j++){
-		
-			wl += 2;
-			if(values.get(wl) != null){
-				specDraw(wl, values.get(wl));
-			}
+			for(int j = 0; j < values.size(); j++){
+				StdOut.println("loop");
+				
+				wl += 2;
+				if(values.get(wl) != null){
+					specDraw(wl, values.get(wl));
+				}
 
+			}
 		}
 	}
 	
@@ -49,6 +53,11 @@ public class dataPlot extends PApplet{
 		stroke(255);
 		line(fr-200, height, fr-200, height-val);
 
+	}
+
+	public void setSpec(Spectrometer spec2) {
+		spec = spec2;
+		
 	}
 
 }

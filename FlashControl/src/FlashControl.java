@@ -47,7 +47,7 @@ import javax.swing.JTable;
 public class FlashControl implements ActionListener{
 
 	private JFrame frame;
-	static ArduinoController lightController;
+	static ArduinoController lightController = new ArduinoController();
 	LEDArray fLight = new LEDArray(12);
 	private JTextField txtPresetName;
 	private JTextField txtPinNumber;
@@ -79,8 +79,9 @@ public class FlashControl implements ActionListener{
 
 			@Override
 			public void run() {
-				lightController = new ArduinoController();
-				lightController.initialize();
+//				lightController = new ArduinoController();
+				lightController.initialize(); 
+				lightController.close();
 			}
 		
 		});
@@ -270,10 +271,20 @@ public class FlashControl implements ActionListener{
         frame.getContentPane().add(panel_1);
         plot.init();
         panel_1.add(plot);
-        
+//        TODO add action listeners to dropdown menus
         JComboBox comboBox = new JComboBox(commPorts);
         comboBox.setBounds(1002, 55, 192, 27);
         frame.getContentPane().add(comboBox);
+        comboBox.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JComboBox cb = (JComboBox)e.getSource();
+				String portName = (String)cb.getSelectedItem();
+				lightController.initialize(portName);
+			}
+        	
+        });
         
         JLabel lblLightPort = new JLabel("Light Port");
         lblLightPort.setBounds(917, 59, 73, 16);
@@ -286,6 +297,16 @@ public class FlashControl implements ActionListener{
         JComboBox comboBox_1 = new JComboBox(commPorts);
         comboBox_1.setBounds(1002, 88, 192, 27);
         frame.getContentPane().add(comboBox_1);
+        comboBox_1.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JComboBox cb = (JComboBox)e.getSource();
+				String portName = (String)cb.getSelectedItem();
+
+			}
+        	
+        });
         
         btnSetFrequency.addActionListener(new ActionListener(){
 
@@ -349,10 +370,7 @@ public class FlashControl implements ActionListener{
 				lightController.setFrequency(11, fLight.getFreq(11));				
 			}
         	
-        });
-        
-        
-        
+        });        
         
         
         
