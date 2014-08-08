@@ -250,21 +250,21 @@ public class FlashControl implements ActionListener{
         scrollBar_11.setPreferredSize(d);
         
         
-        txtPinNumber = new JTextField();
-        txtPinNumber.setText("Pin Number");
-        txtPinNumber.setBounds(31, 216, 86, 20);
-        frame.getContentPane().add(txtPinNumber);
-        txtPinNumber.setColumns(10);
-        
-        txtFrequency = new JTextField();
-        txtFrequency.setText("Frequency");
-        txtFrequency.setBounds(31, 247, 86, 20);
-        frame.getContentPane().add(txtFrequency);
-        txtFrequency.setColumns(10);
-        
-        JButton btnSetFrequency = new JButton("Set Frequency");
-        btnSetFrequency.setBounds(31, 278, 134, 23);
-        frame.getContentPane().add(btnSetFrequency);
+//        txtPinNumber = new JTextField();
+//        txtPinNumber.setText("Pin Number");
+//        txtPinNumber.setBounds(31, 216, 86, 20);
+//        frame.getContentPane().add(txtPinNumber);
+//        txtPinNumber.setColumns(10);
+//        
+//        txtFrequency = new JTextField();
+//        txtFrequency.setText("Frequency");
+//        txtFrequency.setBounds(31, 247, 86, 20);
+//        frame.getContentPane().add(txtFrequency);
+//        txtFrequency.setColumns(10);
+//        
+//        JButton btnSetFrequency = new JButton("Set Frequency");
+//        btnSetFrequency.setBounds(31, 278, 134, 23);
+//        frame.getContentPane().add(btnSetFrequency);
         
         JPanel panel_1 = new JPanel(new GridLayout(1,1));
         panel_1.setBounds(31, 335, 1100, 220);
@@ -309,16 +309,16 @@ public class FlashControl implements ActionListener{
         	
         });
         
-        btnSetFrequency.addActionListener(new ActionListener(){
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-				lightController.setFrequency(txtPinNumber.getText(), txtFrequency.getText());
-				fLight.setFreq(txtPinNumber.getText(), txtFrequency.getText());
-			}
-        	
-        });
+//        btnSetFrequency.addActionListener(new ActionListener(){
+//
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//
+//				lightController.setFrequency(txtPinNumber.getText(), txtFrequency.getText());
+//				fLight.setFreq(txtPinNumber.getText(), txtFrequency.getText());
+//			}
+//        	
+//        });
 
         scrollBar_11.addAdjustmentListener(new AdjustmentListener() {
         	public void adjustmentValueChanged(AdjustmentEvent adjustmentEvent) {

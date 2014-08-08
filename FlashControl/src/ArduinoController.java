@@ -159,10 +159,10 @@ public synchronized void serialEvent(final SerialPortEvent oEvent) {
 			if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
 				try {
 					String inputLine=input.readLine();
-					
+					StdOut.println(inputLine);
 					String numbers[ ] = new String[2];
 					numbers = inputLine.split(" ");
-					values.put(Integer.parseInt(numbers[0]),Integer.parseInt(numbers[1]));
+//					values.put(Integer.parseInt(numbers[0]),Integer.parseInt(numbers[1]));
 					
 //					StdOut.println(values[0] + " "+ values[1]);
 					Thread.sleep(100);
