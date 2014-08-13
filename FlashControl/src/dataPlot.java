@@ -1,5 +1,7 @@
 import java.util.Hashtable;
 
+import javax.swing.JTextField;
+
 import processing.core.PApplet;
 
 
@@ -12,6 +14,7 @@ public class dataPlot extends PApplet{
 	private int wl, value;
 	
 	private Hashtable<Integer, Integer> values = new Hashtable<Integer, Integer>();
+	private DataSet prev;
 	
 	private Spectrometer spec = new Spectrometer();
 	
@@ -30,21 +33,19 @@ public class dataPlot extends PApplet{
 	public void draw(){
 //		specDraw(lc.getVal()[0], lc.getVal()[1]);
 
-		wl = 375;
+		
 		if(spec.toString().contains("Spectrometer")){
 			values = spec.getVal();
-//			StdOut.println("Finished loading array");
-		
+			wl = 375;
 			for(int j = 0; j < values.size(); j++){
-				StdOut.println("loop");
 				
-				wl += 2;
 				if(values.get(wl) != null){
 					specDraw(wl, values.get(wl));
 				}
-
+				wl += 2;
 			}
 		}
+		
 	}
 	
 	public void specDraw(int fr, int val){
@@ -62,6 +63,12 @@ public class dataPlot extends PApplet{
 
 	public void setPort(String portName) {
 		spec.initialize(portName);
+	}
+
+	public void saveSpectrum(String string) {
+		prev = new DataSet(string, values);
+		
+		
 	}
 
 }

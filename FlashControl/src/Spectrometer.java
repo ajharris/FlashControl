@@ -37,7 +37,7 @@ private OutputStream output;
 /** Milliseconds to block while waiting for port open */
 private static final int TIME_OUT = 2000;
 /** Default bits per second for COM port. */
-private static final int DATA_RATE = 9600;
+private static final int DATA_RATE = 921600;
 public Hashtable<Integer, Integer> getVal(){
 	return values;
 }

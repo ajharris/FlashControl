@@ -297,6 +297,32 @@ public class FlashControl implements ActionListener{
         JComboBox comboBox_1 = new JComboBox(commPorts);
         comboBox_1.setBounds(1002, 88, 192, 27);
         frame.getContentPane().add(comboBox_1);
+        
+        txtSpectrumId = new JTextField();
+        txtSpectrumId.setText("Spectrum ID");
+        txtSpectrumId.setBounds(634, 53, 134, 28);
+        frame.getContentPane().add(txtSpectrumId);
+        txtSpectrumId.setColumns(10);
+        
+        JButton btnSaveSpectrum = new JButton("Save Spectrum");
+        btnSaveSpectrum.setBounds(634, 87, 117, 29);
+        frame.getContentPane().add(btnSaveSpectrum);
+        btnSaveSpectrum.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if(txtSpectrumId.getText() != "" && txtSpectrumId.getText() != "Spectrum ID")
+					plot.saveSpectrum(txtSpectrumId.getText());
+				else
+					JOptionPane.showMessageDialog(frame,"Enter a valid spectrum ID");
+				
+			}
+        	
+        });
+        
+        JButton btnLoadCompare = new JButton("Load & Compare");
+        btnLoadCompare.setBounds(634, 122, 134, 29);
+        frame.getContentPane().add(btnLoadCompare);
         comboBox_1.addActionListener(new ActionListener(){
 
 			@Override
@@ -395,6 +421,8 @@ public class FlashControl implements ActionListener{
     						fLight.setElement(fader-2, fLight.getElement(fader-2)-1);
     					}
     		}
+    		
+    		
     	
     	
 	}
@@ -404,9 +432,7 @@ public class FlashControl implements ActionListener{
 		
 	}
 	private CommPortLister lister = new CommPortLister();
-	
-//	
-
+	private JTextField txtSpectrumId;
 }
 
 
